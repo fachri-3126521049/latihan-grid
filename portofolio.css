@@ -1,0 +1,168 @@
+/* ===== Reset & dasar ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --ink: #1c2b33;
+    --paper: #f4f6f3;
+    --card: #ffffff;
+    --accent: #1f6f6b;
+    --highlight: #f2c14e;
+    --line: #d5dcd6;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Source Serif 4", Georgia, serif;
+    line-height: 1.7;
+    color: var(--ink);
+    background: var(--paper);
+}
+
+h1, h2, h3, .menu a {
+    font-family: "Bricolage Grotesque", "Segoe UI", Arial, sans-serif;
+}
+
+a:focus-visible {
+    outline: 3px solid var(--highlight);
+    outline-offset: 3px;
+}
+
+/* ===== Header (mobile-first) ===== */
+.header {
+    background: var(--ink);
+    color: #fff;
+    padding: 1.5rem 1rem;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+}
+
+/* Menu navigasi dengan Flexbox */
+.menu {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.25rem 0;
+    border-bottom: 2px solid transparent;
+}
+
+.menu a:hover {
+    border-bottom-color: var(--highlight);
+}
+
+/* ===== Tentang ===== */
+.tentang,
+.proyek {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2.5rem 1rem;
+}
+
+.tentang p {
+    max-width: 65ch;
+}
+
+h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    padding-left: 0.75rem;
+    border-left: 5px solid var(--highlight);
+}
+
+/* ===== Proyek: CSS Grid ===== */
+/* Ponsel: 1 kolom */
+.grid-proyek {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+}
+
+.kartu {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--accent);
+    border-radius: 6px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.kartu h3 {
+    font-size: 1.15rem;
+}
+
+.kartu p {
+    flex: 1;
+    font-size: 0.95rem;
+}
+
+.tag {
+    font-family: "Bricolage Grotesque", Arial, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--accent);
+    background: #e3efed;
+    padding: 0.15rem 0.6rem;
+    border-radius: 999px;
+}
+
+/* ===== Footer ===== */
+.footer {
+    background: var(--ink);
+    color: #fff;
+    text-align: center;
+    padding: 1.25rem 1rem;
+    font-size: 0.9rem;
+}
+
+/* ===== Tablet (>= 768px): 2 kolom ===== */
+@media (min-width: 768px) {
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.25rem 2rem;
+        text-align: left;
+    }
+
+    .header h1 {
+        margin-bottom: 0;
+    }
+
+    .tentang,
+    .proyek {
+        padding: 3rem 2rem;
+    }
+
+    .grid-proyek {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+/* ===== Desktop (>= 1024px): 3 kolom ===== */
+@media (min-width: 1024px) {
+    .grid-proyek {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
